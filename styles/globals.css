@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* @font-face {
+  font-family: 'GoodDog Plain', sans-serif;
+  src: url('/styles/GoodDog_Font_Family/GoodDog 400.otf') format('otf'),
+} */
+/* @font-face {
+  font-family: 'GoodDog Cool', sans-serif;
+  src: url('/styles/GoodDog_Font_Family/GoodDog-Cool 400.otf') format('otf');
+} */
+:root {
+  --color-primary: #AB3500;
+  /* --color-primary-grad: linear-gradient(90deg, #638D33 0%, #89C149 100%); */
+
+  --color-gray-1: #C5C8BA;
+  --color-gray-2: #A9AD9F;
+}
+
+@layer base {
+  html {
+    /* 16px = 100% */
+    /* 10px = 62.5% */
+    font-size: 16px;
+  
+  }
+  @media only screen and (max-width: 600px) {
+    html { font-size: 10px;}
+  }
+  @media only screen and (min-width: 1600px) {
+    html { font-size: 12px;}
+  }
+  @media only screen and (min-width: 2000) {
+    html {font-size: 14px;}
+  }
+  @media only screen and (min-width: 2400) {
+    html { font-size: 16px;}
+  }
+
+
+  body {
+    @apply bg-black;
+    /* @apply bg-[#111111]; */
+    overflow-x: hidden
+  }
+
+  h1 {
+    @apply text-6xl font-extrabold;
+  }
+
+  h2 {
+    @apply text-5xl font-extrabold text-gray-1;
+    letter-spacing: -0.25px
+  }
+
+  h3 {
+    @apply text-5xl font-bold text-black;
+  }
+
+
+
+}
+
+@layer components {
+  .btn-primary {
+    @apply rounded-[8px] h-12 p-8 py-3 text-white hover:text-black text-base font-medium hover:bg-[#985536];
+
+    /* can be treated like a fallback */
+    background-color: var(--color-primary);
+    width: 230px;
+    /* will be "on top", if browser supports it */
+    /* background-image: var(--color-primary-grad); */
+    /* these will reset other properties, like background-position, but it does know what you mean */
+    /* background: red;
+    background: linear-gradient(red, orange); */
+
+  }
+  .btn-outlined {
+    @apply rounded-[8px] h-12 p-8 py-3 border border-[#AB3500] text-[#AB3500] hover:text-black text-base font-medium hover:bg-[#985536];
+    background-color: #FFEEE1;
+    width: 230px;
+   
+  }
+
+  .link-primary {
+    @apply text-base font-medium text-white cursor-pointer;
+  }
+
+  .heading-grad-caption {
+    @apply grad-text text-lg font-medium capitalize inline-flex;
+    letter-spacing: 0.4em;
+  }
+
+  .heading-desc {
+    @apply text-[#A9AD9F] text-base font-normal;
+    letter-spacing: 0.5px;
+  }
+}
+
+@layer utilities {
+  .grad-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary)] to-[#89C149]
+  }
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.change{
+  flex:1;
+  border-radius: 1rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  transition: all .8s cubic-bezier(0.25, 0.4, 0.45, 1.4);
+ }
+.change :hover{
+  transform: scale(1.1);
+  /* translate: 0.5rem; */
+  flex:8;
+ }
+
+
+ .focus {
+  transform: scale(1.1);
+  z-index: 1;
+}
+.unfocus {
+  transform: scale(0.9);
+  opacity: 0.5;
+}
