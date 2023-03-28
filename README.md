@@ -1,2 +1,2 @@
 # Native Events
-## (vercel)[https://native-alpha.vercel.app/]
+## vercel[https://native-alpha.vercel.app/]
